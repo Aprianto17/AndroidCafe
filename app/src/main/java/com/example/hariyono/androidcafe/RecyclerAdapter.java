@@ -1,5 +1,6 @@
 package com.example.hariyono.androidcafe;
 
+import android.app.FragmentContainer;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -37,7 +38,7 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdapter.MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, int position) {
         Menu current = menu.get(position);
         holder.setData(current,position);
         holder.setListeners();
@@ -79,15 +80,15 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerAdapter.MyVie
         }
 
         public void setListeners() {
-            itemView.setOnClickListener(new View.OnClickListener(){
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FragmentCommunicator fragmentCommunicator = (FragmentCommunicator) context;
-
+                    FragmentCommunicator fragmentCommunicator = (FragmentCommunicator)context;
                     fragmentCommunicator.displayDetail(current);
 
                 }
             });
+
         }
     }
 }
